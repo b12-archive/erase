@@ -4,8 +4,8 @@ const test = require('tape-catch');
 
 test('Takes pairs of tags', (is) => {
   const single = {
-    actual: erase('a<!-- @erase start -->b<!-- @erase end -->c'),
-    expected: 'ac',
+    actual: erase('A <!-- @erase start -->B <!-- @erase end -->C'),
+    expected: 'A C',
   };
 
   is.equal(single.actual, single.expected,
@@ -14,10 +14,10 @@ test('Takes pairs of tags', (is) => {
 
   const more = {
     actual: erase(
-      'a<!-- @erase start -->b<!-- @erase end -->' +
-      'c<!-- @erase start -->d<!-- @erase end -->e'
+      'A <!-- @erase start -->B <!-- @erase end -->' +
+      'C <!-- @erase start -->D <!-- @erase end -->E'
     ),
-    expected: 'ace',
+    expected: 'A C E',
   };
 
   is.equal(more.actual, more.expected,
@@ -25,8 +25,8 @@ test('Takes pairs of tags', (is) => {
   );
 
   const newline = {
-    actual: erase('a\n<!-- @erase start -->b\n<!-- @erase end -->c\n'),
-    expected: 'a\nc\n',
+    actual: erase('A\n<!-- @erase start -->B\n<!-- @erase end -->C\n'),
+    expected: 'A\nC\n',
   };
 
   is.equal(newline.actual, newline.expected,
@@ -38,8 +38,8 @@ test('Takes pairs of tags', (is) => {
 
 test('Ignores whitespace within a tag', (is) => {
   const weird = {
-    actual: erase('a<!--@erase\tstart\n   \n-->b<!--   \t   @erase\nend-->c'),
-    expected: 'ac',
+    actual: erase('A <!--@erase\tstart\n   \n-->B <!--   \t   @erase\nend-->C'),
+    expected: 'A C',
   };
 
   is.equal(weird.actual, weird.expected,
