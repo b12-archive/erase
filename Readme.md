@@ -29,12 +29,12 @@ erase
 
 <p align="center"><a
   title="Graphic by the great Justin Mezzell"
-  href="http://justinmezzell.tumblr.com/post/89957156723"
+  href="http://justinmezzell.tumblr.com/post/95370140878"
   >
   <br/>
   <br/>
   <img
-    src="Readme/….gif"
+    src="Readme/Scissors.gif"
     width="400"
     height="300"
   />
