@@ -32,6 +32,8 @@ test('Takes pairs of tags', (is) => {
   is.equal(newline.actual, newline.expected,
     'doesn’t fear newlines'
   );
+
+  is.end();
 });
 
 test.skip('Ignores whitespace within a tag', (is) => {
@@ -43,6 +45,8 @@ test.skip('Ignores whitespace within a tag', (is) => {
   is.equal(aaa.actual, aaa.expected,
     'in the weirdest of cases'
   );
+
+  is.end();
 });
 
 test.skip('Takes unpaired tags', (is) => {
@@ -81,4 +85,6 @@ test.skip('Takes unpaired tags', (is) => {
   is.equal(ddd.actual, ddd.expected,
     'together with paired tags'
   );
+
+  is.end();
 });
