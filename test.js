@@ -1,3 +1,5 @@
+import erase from './module';
+
 const test = require('tape-catch');
 
 test('Takes pairs of tags', (is) => {
