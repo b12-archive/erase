@@ -49,40 +49,46 @@ test('Ignores whitespace within a tag', (is) => {
   is.end();
 });
 
-test.skip('Takes unpaired tags', (is) => {
-  const aaa = {
-    actual: erase('<!-- @erase start --><!-- @erase end -->'),
-    expected: '',
+test('Takes unpaired tags', (is) => {
+  const start = {
+    actual: erase('A<!-- @erase start --> B'),
+    expected: 'A',
   };
 
-  is.equal(aaa.actual, aaa.expected,
+  is.equal(start.actual, start.expected,
     'at the beginning'
   );
 
-  const bbb = {
-    actual: erase('<!-- @erase start --><!-- @erase end -->'),
-    expected: '',
+  const end = {
+    actual: erase('A <!-- @erase end -->B'),
+    expected: 'B',
   };
 
-  is.equal(bbb.actual, bbb.expected,
+  is.equal(end.actual, end.expected,
     'at the end'
   );
 
-  const ccc = {
-    actual: erase('<!-- @erase start --><!-- @erase end -->'),
-    expected: '',
+  const startAndEnd = {
+    actual: erase('A <!-- @erase end -->B<!-- @erase start --> C'),
+    expected: 'B',
   };
 
-  is.equal(ccc.actual, ccc.expected,
+  is.equal(startAndEnd.actual, startAndEnd.expected,
     'at the beginning and at the end'
   );
 
-  const ddd = {
-    actual: erase('<!-- @erase start --><!-- @erase end -->'),
-    expected: '',
+  const mixed = {
+    actual: erase(
+      'A <!-- @erase end -->' +
+      'B ' +
+      '<!-- @erase start -->C <!-- @erase end -->' +
+      'D' +
+      '<!-- @erase start --> E'
+    ),
+    expected: 'B D',
   };
 
-  is.equal(ddd.actual, ddd.expected,
+  is.equal(mixed.actual, mixed.expected,
     'together with paired tags'
   );
 
