@@ -5,13 +5,14 @@ const tagRE = (tag) => (
   '\\s*-->'
 );
 
-const betweenTags = new RegExp(
+const unwanted = new RegExp(
   tagRE('start') +
   '[^]+?' +
-  tagRE('end'),
+  `(?:${tagRE('end')}|$)`,
+
   'g'
 );
 
 export default (input) => (
-  String(input).replace(betweenTags, '')
+  String(input).replace(unwanted, '')
 );
