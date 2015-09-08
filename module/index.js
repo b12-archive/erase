@@ -7,11 +7,11 @@ const tagRE = (tag) => (
 
 const betweenTags = new RegExp(
   tagRE('start') +
-  '(.+?)' +
+  '[^]+?' +
   tagRE('end'),
   'g'
 );
 
 export default (input) => (
-  String(input).replace(betweenTags, '$1')
+  String(input).replace(betweenTags, '')
 );
