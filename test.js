@@ -36,13 +36,13 @@ test('Takes pairs of tags', (is) => {
   is.end();
 });
 
-test.skip('Ignores whitespace within a tag', (is) => {
-  const aaa = {
-    actual: erase('<!-- @erase start --><!-- @erase end -->'),
-    expected: '',
+test('Ignores whitespace within a tag', (is) => {
+  const weird = {
+    actual: erase('a<!--@erase\tstart\n   \n-->b<!--   \t   @erase\nend-->c'),
+    expected: 'ac',
   };
 
-  is.equal(aaa.actual, aaa.expected,
+  is.equal(weird.actual, weird.expected,
     'in the weirdest of cases'
   );
 
