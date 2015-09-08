@@ -94,3 +94,16 @@ test('Takes unpaired tags', (is) => {
 
   is.end();
 });
+
+test('Doesn’t touch text without any tags', (is) => {
+  const simple = {
+    actual: erase('A'),
+    expected: 'A',
+  };
+
+  is.equal(simple.actual, simple.expected,
+    'just doesn’t'
+  );
+
+  is.end();
+});
