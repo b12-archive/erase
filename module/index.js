@@ -5,14 +5,22 @@ const tagRE = (tag) => (
   '\\s*-->'
 );
 
-const unwanted = new RegExp(
+const pairedOrLoneStart = new RegExp(
   tagRE('start') +
   '[^]+?' +
   `(?:${tagRE('end')}|$)`,
+  'g'
+);
 
+const loneEnd = new RegExp(
+  '^' +
+  '[^]+?' +
+  tagRE('end'),
   'g'
 );
 
 export default (input) => (
-  String(input).replace(unwanted, '')
+  String(input)
+    .replace(pairedOrLoneStart, '')
+    .replace(loneEnd, '')
 );
