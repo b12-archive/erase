@@ -82,6 +82,17 @@ Anything between the markers `<!-- @erase start -->` and `<!-- @erase end -->` w
 
 
 
+
+<div                                                 id="/see-also">&nbsp;</div>
+
+See also
+--------
+
+* **[markdown-code-hashtags](http://npm.im/markdown-code-hashtags)** – Convert every [`#hashtag`](http://npm.im/markdown-code-hashtags) to a link.
+
+
+
+
 <div                                                  id="/license">&nbsp;</div>
 
 License
