@@ -62,8 +62,23 @@ $ npm install erase
 Usage
 -----
 
-*Work in progress…*
+```js
+const erase = require('erase');
 
+const readme =
+`# Got a readme here
+
+<!-- @erase start -->I’ve got some irrelevant stuff there, but I hope that
+<!-- @erase end -->most of it is quite important.
+`;
+
+erase(readme);
+//» # Got a readme here
+//
+//  most of it is quite important.
+```
+
+Anything between the markers `<!-- @erase start -->` and `<!-- @erase end -->` will be removed from your string. You can have as much whitespace within your marker as you want. Both the start marker and the end marker are optional, but we need at least one of them to erase anything from your input.
 
 
 
